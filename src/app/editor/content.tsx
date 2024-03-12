@@ -11,6 +11,7 @@ import ReactFlow, {
 } from 'reactflow'
 
 import 'reactflow/dist/style.css'
+import StickyNote from './components/sticky-note'
 
 const initialNodes = [
   { id: '1', position: { x: 100, y: 0 }, data: { label: 'Actions' } },
@@ -18,8 +19,22 @@ const initialNodes = [
   { id: '3', position: { x: 100, y: 200 }, data: { label: 'Database Name' } }
 ]
 const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', label: 'POST', type: 'step' },
-  { id: 'e2-3', source: '2', target: '3', label: 'Query', type: 'step' }
+  {
+    id: 'e1-2',
+    source: '1',
+    target: '2',
+    label: 'POST',
+    type: 'step',
+    animated: true
+  },
+  {
+    id: 'e2-3',
+    source: '2',
+    target: '3',
+    label: 'Query',
+    type: 'smoothstep',
+    animated: true
+  }
 ]
 
 type ContentProps = {}
@@ -35,6 +50,7 @@ export default function Content(props: ContentProps) {
 
   return (
     <div className='bg-gray-100 h-screen w-screen'>
+      <StickyNote />
       <ReactFlow
         nodes={nodes}
         edges={edges}
