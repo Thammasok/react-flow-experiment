@@ -7,11 +7,13 @@ import {
   TooltipTrigger
 } from '@/components/ui/tooltip'
 import {
-  Cable,
-  Database,
-  MousePointer,
-  MousePointerClick,
-  RouteIcon
+  CableIcon,
+  DatabaseIcon,
+  ImageIcon,
+  MousePointerClickIcon,
+  MousePointerIcon,
+  RouteIcon,
+  StickyNoteIcon
 } from 'lucide-react'
 import React from 'react'
 
@@ -39,32 +41,44 @@ const ButtonTool = ({
 }
 
 export default function Tools({}: ToolsProps) {
+  const strokeWidth = 1.5
+
   return (
     <div className='fixed top-[40%] translate-y-[-40%] left-3 bg-white rounded-md z-10 text-gray-800'>
       <ul className='p-2'>
         <li>
           <ButtonTool title='Move'>
-            <MousePointer />
+            <MousePointerIcon strokeWidth={strokeWidth} />
           </ButtonTool>
         </li>
         <li>
           <ButtonTool title='Actions'>
-            <MousePointerClick />
+            <MousePointerClickIcon strokeWidth={strokeWidth} />
+          </ButtonTool>
+        </li>
+        <li>
+          <ButtonTool title='Image'>
+            <ImageIcon strokeWidth={strokeWidth} />
+          </ButtonTool>
+        </li>
+        <li>
+          <ButtonTool title='Sticky Note'>
+            <StickyNoteIcon strokeWidth={strokeWidth} />
           </ButtonTool>
         </li>
         <li>
           <ButtonTool title='Flows'>
-            <RouteIcon />
+            <RouteIcon strokeWidth={strokeWidth} />
           </ButtonTool>
         </li>
         <li>
           <ButtonTool title='APIs Connects'>
-            <Cable />
+            <CableIcon strokeWidth={strokeWidth} />
           </ButtonTool>
         </li>
         <li>
           <ButtonTool title='Database'>
-            <Database />
+            <DatabaseIcon strokeWidth={strokeWidth} />
           </ButtonTool>
         </li>
       </ul>
