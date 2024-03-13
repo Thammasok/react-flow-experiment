@@ -13,6 +13,8 @@ import ReactFlow, {
 import 'reactflow/dist/style.css'
 import StickyNote from './nodes/sticky-note'
 import ImageNode from './nodes/image'
+import Rectangle from './nodes/rectangle'
+import Ellipse from './nodes/ellipse'
 
 const initialNodes = [
   { id: '1', position: { x: 100, y: 0 }, data: { label: 'Actions' } },
@@ -33,6 +35,22 @@ const initialNodes = [
     id: '4',
     type: 'stickyNote',
     position: { x: 300, y: 300 },
+    data: {
+      text: 'Our interior design experts work with you to create the space that you have been dreaming about.'
+    }
+  },
+  {
+    id: '6',
+    type: 'rectangle',
+    position: { x: 400, y: 300 },
+    data: {
+      text: 'Our interior design experts work with you to create the space that you have been dreaming about.'
+    }
+  },
+  {
+    id: '7',
+    type: 'ellipse',
+    position: { x: 400, y: 300 },
     data: {
       text: 'Our interior design experts work with you to create the space that you have been dreaming about.'
     }
@@ -64,7 +82,12 @@ export default function Content(props: ContentProps) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
 
   // Custom Nodes
-  const nodeTypes = { stickyNote: StickyNote, image: ImageNode }
+  const nodeTypes = {
+    rectangle: Rectangle,
+    ellipse: Ellipse,
+    stickyNote: StickyNote,
+    image: ImageNode
+  }
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),

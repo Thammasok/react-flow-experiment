@@ -22,7 +22,8 @@
     "reactflow": "^11.10.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "use-double-click": "^1.0.5"
+    "use-double-click": "^1.0.5",
+    "usehooks-ts": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
