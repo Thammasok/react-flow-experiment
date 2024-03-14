@@ -40,10 +40,10 @@ export default function Ellipse({}: EllipseProps) {
         isVisible={isFocus}
         minWidth={40}
         minHeight={40}
-        lineStyle={{ border: `1px solid ${COLORS.resize.line}` }}
+        lineStyle={{ border: `1px solid ${COLORS.RESIZE.LINE}` }}
         handleStyle={{
-          background: COLORS.resize.dot,
-          border: `2px solid ${COLORS.resize.dot}`,
+          background: COLORS.RESIZE.DOT,
+          border: `2px solid ${COLORS.RESIZE.BG}`,
           width: 10,
           height: 10
         }}

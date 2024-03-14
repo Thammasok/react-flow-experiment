@@ -1,7 +1,7 @@
 export const COLORS = {
-  resize: {
-    dot: '#378CE7',
-    line: '#378CE7',
-    bg: '#F4F6F7'
+  RESIZE: {
+    DOT: '#378CE7',
+    LINE: '#378CE7',
+    BG: '#F4F6F7'
   }
 }
