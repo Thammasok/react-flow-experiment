@@ -1,12 +1,5 @@
-import { TooltipProvider } from '@/components/ui/tooltip'
-import Content from './content'
-import Tools from './tools'
+import Content from '@/app/editor/content'
 
 export default function Editor() {
-  return (
-    <TooltipProvider>
-      <Tools />
-      <Content />
-    </TooltipProvider>
-  )
+  return <Content />
 }
