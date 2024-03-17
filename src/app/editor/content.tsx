@@ -14,10 +14,11 @@ import ReactFlow, {
 } from 'reactflow'
 
 import 'reactflow/dist/style.css'
-import StickyNote from './nodes/sticky-note'
-import ImageNode from './nodes/image'
-import Rectangle from './nodes/render'
-import Ellipse from './nodes/ellipse'
+// import StickyNote from '@/app/editor/nodes/sticky-note'
+import StickyNote2 from '@/app/editor/nodes/sticky-note2'
+import ImageNode from '@/app/editor/nodes/image'
+import Rectangle from '@/app/editor/nodes/rectangle'
+import Ellipse from '@/app/editor/nodes/ellipse'
 
 const initialNodes = [
   {
@@ -60,11 +61,27 @@ const initialNodes = [
   {
     id: '6',
     type: 'rectangle',
-    position: { x: 400, y: 300 },
-    data: {
-      text: 'Our interior design experts work with you to create the space that you have been dreaming about.'
+    data: { label: 'Custom Resize Icon' },
+    position: { x: -200, y: 300 },
+    style: {
+      background: '#fff',
+      fontSize: 12,
+      border: '1px solid black',
+      padding: 5,
+      borderRadius: 12,
+      height: 100,
+      width: 200,
+      textAlign: 'center'
     }
   },
+  // {
+  //   id: '6',
+  //   type: 'rectangle',
+  //   position: { x: 400, y: 300 },
+  //   data: {
+  //     text: 'Our interior design experts work with you to create the space that you have been dreaming about.'
+  //   }
+  // },
   {
     id: '7',
     type: 'ellipse',
@@ -96,7 +113,7 @@ const initialEdges = [
 type ContentProps = {}
 
 export default function Content(props: ContentProps) {
-  const edgeUpdateSuccessful = useRef(true);
+  const edgeUpdateSuccessful = useRef(true)
   const [nodes, setNodes] = useNodesState(initialNodes)
   const [edges, setEdges] = useEdgesState([])
 
@@ -104,7 +121,7 @@ export default function Content(props: ContentProps) {
   const nodeTypes = {
     rectangle: Rectangle,
     ellipse: Ellipse,
-    stickyNote: StickyNote,
+    stickyNote: StickyNote2,
     image: ImageNode
   }
 
@@ -112,7 +129,7 @@ export default function Content(props: ContentProps) {
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
     [setNodes]
   )
-  
+
   const onEdgesChange = useCallback(
     (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
     [setEdges]

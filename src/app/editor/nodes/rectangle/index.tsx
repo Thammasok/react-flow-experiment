@@ -7,9 +7,8 @@ import {
   ResizeParams
 } from 'reactflow'
 import { useClickAnyWhere, useHover } from 'usehooks-ts'
-import { COLORS } from '../constant/colors'
-import { cn } from '@/lib/utils'
-import Rectangle from './rectangle'
+import { COLORS } from '@/app/editor/constant/colors'
+import Rectangle from '@/app/editor/nodes/rectangle/rectangle2'
 
 type RenderProps = {
   data: any
@@ -51,14 +50,12 @@ export default function Render({ data, isConnectable }: RenderProps) {
     }
   }, [])
 
-  const RectangleMemo = useMemo(() => <Rectangle />, [])
-
   return (
     <div ref={hoverRef} className='w-full h-full'>
       {isHover && (
         <>
           <Handle
-            type='source'  
+            type='source'
             position={Position.Top}
             isConnectable={isConnectable}
             isConnectableEnd
@@ -88,6 +85,10 @@ export default function Render({ data, isConnectable }: RenderProps) {
         </>
       )}
 
+      {isFocus && (
+        <div className='absolute w-full h-full top-[-50px]'>Tools</div>
+      )}
+
       <NodeResizer
         isVisible={isFocus}
         onResize={handleResize}
@@ -100,14 +101,12 @@ export default function Render({ data, isConnectable }: RenderProps) {
         handleStyle={{
           background: COLORS.RESIZE.BG,
           border: `2px solid ${COLORS.RESIZE.LINE}`,
-          width: 16,
-          height: 16
+          width: 14,
+          height: 14
         }}
       />
 
-      <div className='absolute w-full h-full top-[-50px]'>Tools</div>
-
-      {RectangleMemo}
+      <Rectangle text={data.label} />
     </div>
   )
 }
